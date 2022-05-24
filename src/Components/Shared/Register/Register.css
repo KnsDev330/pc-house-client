@@ -1,0 +1,16 @@
+
+.continue-with-button {
+    transition: 0.1s ease-in-out;
+}
+
+.continue-with-button:hover {
+    background-color: var(--btn-hover-background);
+}
+
+.continue-with-button p {
+    margin: 0 0 0 10px;
+}
+
+.continue-with-button img {
+    height: 25px;
+}

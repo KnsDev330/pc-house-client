@@ -4,7 +4,7 @@ import './Footer.css';
 
 const Footer = () => {
     return (
-        <div>
+        <div className='mt-auto'>
             Footer
         </div>
     );
