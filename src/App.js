@@ -10,6 +10,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import ResetPassword from './Components/Shared/ResetPassword/ResetPassword';
 import Reviews from './Components/Shared/Reviews/Reviews';
 import Dashboard from './Components/Shared/Dashboard/Dashboard';
+import MyProfile from './Components/Shared/MyProfile/MyProfile';
 
 function App() {
     return (
@@ -23,9 +24,9 @@ function App() {
                 <Route path='register' element={<Register />}></Route>
                 <Route path='reset-password' element={<ResetPassword />}></Route>
                 <Route path='reviews' element={<Reviews />}></Route>
-                <Route path='dashboard'>
-                    <Route index element={<Dashboard />} />
-                    <Route path='profile' element={<Footer />} />
+                <Route path='dashboard' element={<Dashboard />}>
+                    <Route index element={<MyProfile />} />
+                    <Route path='/dashboard/profile' element={<ok></ok>} />
                 </Route>
             </Routes>
             <Footer />

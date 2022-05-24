@@ -1,7 +1,7 @@
 import { signOut } from 'firebase/auth';
 import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { auth } from '../../../firebase.init';
 import { FiMenu } from 'react-icons/fi';
 
@@ -21,7 +21,13 @@ const Header = () => {
                         <li><Link to='/reviews'>Reviews</Link></li>
                         <li><Link to='/items'>All Items</Link></li>
                         <li><Link to='/blogs'>Blogs</Link></li>
-                        {user && <li><Link to='/dashboard' className='font-semibold'>Dashboard</Link></li>}
+                        {
+                            user && <>
+                                <li><Link to='/dashboard' className='font-semibold'>Dashboard</Link></li>
+                                <li><button className='btn btn-ghost text-red-500' onClick={() => signOut(auth)}>Logout</button></li>
+                            </>
+                        }
+
                     </ul>
                 </div>
                 <Link to='/' className="btn btn-ghost normal-case text-xl">PC-HOUSE</Link>
@@ -36,10 +42,12 @@ const Header = () => {
                 </ul>
             </div>
             <div className="navbar-end pr-3">
-                {user ? <button className="btn btn-outline hidden btn-error" onClick={() => signOut(auth)}>Logout</button> : <Link to='/login' className="btn">Login</Link>}
-                <label for="my-drawer-2" class="btn btn-ghost lg:hidden drawer-button lg:hidden"><FiMenu className='h-[25px] w-[25px]' /></label>
+                {user ? <button className="btn btn-outline hidden md:inline-flex btn-error" onClick={() => signOut(auth)}>Logout</button> : <Link to='/login' className="btn">Login</Link>}
+                {
+                    useLocation().pathname.includes('/dashboard') && <label htmlFor="side-nav" class="btn btn-ghost lg:hidden drawer-button lg:hidden"><FiMenu className='h-[25px] w-[25px]' /></label>
+                }
             </div>
-        </div>
+        </div >
     );
 };
 
