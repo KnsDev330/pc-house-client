@@ -6,7 +6,7 @@ import { FaTags, FaUsers, FaUserCircle, FaCommentDots } from 'react-icons/fa';
 import './Dashboard.css';
 
 const Dashboard = () => {
-    const [isAdmin, setIsAdmin] = useState(true);
+    const [isAdmin, setIsAdmin] = useState(false);
 
     return (
         <div>

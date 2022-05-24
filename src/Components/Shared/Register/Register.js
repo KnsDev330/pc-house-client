@@ -50,7 +50,7 @@ const Register = () => {
                 localStorage.removeItem("toLocation");
                 toast.success(`Success`);
             })
-            .catch(err => { console.log(err); toast.error(`Error: ${err?.response?.data?.text}`) })
+            .catch(err => { console.log(err); toast.error(`Error: ${err?.response?.data?.text || err.message}`) })
     }, [user, navigate]);
 
     // showing error if any
@@ -65,7 +65,7 @@ const Register = () => {
     useEffect(() => { setShowLoading(!!emailLoading || !!googleLoading || !!twitterLoading || !!updatingProfile) }, [emailLoading, twitterLoading, googleLoading, updatingProfile]);
 
     return (
-        <div className='mx-auto w-[500px] max-w-full px-4 flex flex-col items-center grow-1'>
+        <div className='mx-auto w-[500px] max-w-full px-4 my-5 flex flex-col items-center grow-1'>
             <h2 className="text-2xl font-bold text-amber-400">Register</h2>
             <small>Create a new account</small>
             <div className='bg-white border-2 rounded-xl flex flex-col items-center my-4 py-4 lg:py-8 px-4 w-full'>

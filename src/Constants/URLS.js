@@ -1,6 +1,7 @@
 const URLS = {
     serverRoot: 'http://localhost:5000',
-    getJwt: 'get-jwt'
+    getJwt: 'get-jwt',
+    getParts: 'get-parts'
 }
 
 const AxiosHeaders = {

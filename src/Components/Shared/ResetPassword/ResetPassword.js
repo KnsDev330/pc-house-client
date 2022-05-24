@@ -28,7 +28,7 @@ const ResetPassword = () => {
     useEffect(() => { setShowLoading(sending) }, [sending]);
 
     return (
-        <div className='mx-auto w-[500px] max-w-full px-4 flex flex-col items-center grow-1'>
+        <div className='mx-auto w-[500px] max-w-full px-4 my-5 flex flex-col items-center grow-1'>
             <h2 className="text-2xl font-bold text-amber-400">Password Reset</h2>
             <small>Send a password reset confirmation email</small>
             <div className='bg-white border-2 rounded-xl flex flex-col items-center my-4 py-4 lg:py-8 px-4 w-full'>
