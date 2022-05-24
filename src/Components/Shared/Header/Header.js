@@ -3,13 +3,14 @@ import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
 import { auth } from '../../../firebase.init';
+import { FiMenu } from 'react-icons/fi';
 
 import './Header.css';
 
 const Header = () => {
     const [user] = useAuthState(auth);
     return (
-        <div className="navbar bg-base-100 mb-4 lg:mb-8">
+        <div className="navbar bg-base-100 sticky top-0 z-50">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex="0" className="btn btn-ghost lg:hidden">
@@ -34,8 +35,9 @@ const Header = () => {
                     {user && <li><Link to='/dashboard' className='font-semibold'>Dashboard</Link></li>}
                 </ul>
             </div>
-            <div className="navbar-end pr-8">
-                {user ? <button className="btn btn-outline btn-error" onClick={() => signOut(auth)}>Logout</button> : <Link to='/login' className="btn">Login</Link>}
+            <div className="navbar-end pr-3">
+                {user ? <button className="btn btn-outline hidden btn-error" onClick={() => signOut(auth)}>Logout</button> : <Link to='/login' className="btn">Login</Link>}
+                <label for="my-drawer-2" class="btn btn-ghost lg:hidden drawer-button lg:hidden"><FiMenu className='h-[25px] w-[25px]' /></label>
             </div>
         </div>
     );
