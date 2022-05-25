@@ -1,0 +1,13 @@
+.blur {
+    background-image: url('./../../../public/img/summary-bg.jpg');
+    -webkit-filter: blur(8px);
+    filter: blur(8px);
+}
+
+.summary-div {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}

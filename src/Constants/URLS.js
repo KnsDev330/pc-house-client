@@ -9,6 +9,7 @@ const URLS = {
     placeOrder: 'place-order',
     getMyOrders: 'get-my-orders',
     getOrder: 'get-order',
+    getReviews: 'get-reviews',
     cancelOrder: 'cancel-order',
     storePayment: 'store-payment',
     createPaymentIntent: 'create-payment-intent'

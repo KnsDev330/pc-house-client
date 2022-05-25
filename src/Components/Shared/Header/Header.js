@@ -13,7 +13,6 @@ const Header = () => {
         console.log(user)
     }, [user])
     const isLoginPage = useLocation().pathname.includes('/login');
-    const isRegisterPage = useLocation().pathname.includes('/register');
 
     return (
         <div className="navbar bg-base-100 sticky top-0 z-50">

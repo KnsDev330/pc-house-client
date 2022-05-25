@@ -25,7 +25,7 @@ const UserRow = ({ num, user, refetch }) => {
     return (
         <tr>
             <th>{num + 1}</th>
-            <td>{name}</td>
+            <td>{name || <small>Unknown</small>}</td>
             <td>{email}</td>
             <td>{role !== 'admin' ? <button onClick={makeAdmin} className="btn btn-xs">Make Admin</button> : `True`}</td>
         </tr>
