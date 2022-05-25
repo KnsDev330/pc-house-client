@@ -13,6 +13,7 @@ import Dashboard from './Components/Shared/Dashboard/Dashboard';
 import MyProfile from './Components/Shared/MyProfile/MyProfile';
 import Purchase from './Components/User/Purchase/Purchase';
 import RequireAuth from './Components/Shared/RequireAuth/RequireAuth';
+import Users from './Components/Admin/Users/Users';
 
 function App() {
     return (
@@ -29,7 +30,7 @@ function App() {
                 <Route path='purchase/:id' element={<RequireAuth><Purchase /></RequireAuth>}></Route>
                 <Route path='dashboard' element={<Dashboard />}>
                     <Route index element={<MyProfile />} />
-                    <Route path='/dashboard/profile' element={<ok></ok>} />
+                    <Route path='/dashboard/users' element={<Users />} />
                 </Route>
             </Routes>
             <Footer />

@@ -6,13 +6,13 @@ import { FaTags, FaUsers, FaUserCircle, FaCommentDots } from 'react-icons/fa';
 import './Dashboard.css';
 
 const Dashboard = () => {
-    const [isAdmin, setIsAdmin] = useState(false);
+    const [isAdmin, setIsAdmin] = useState(true);
 
     return (
         <div>
             <div className="drawer drawer-mobile">
                 <input id="side-nav" type="checkbox" className="drawer-toggle" />
-                <div className="drawer-content flex flex-col items-center justify-center">
+                <div className="drawer-content">
                     <Outlet />
                 </div>
                 <div className="drawer-side">

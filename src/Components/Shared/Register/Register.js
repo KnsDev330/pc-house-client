@@ -39,7 +39,7 @@ const Register = () => {
     const [user, , error] = useAuthState(auth);
     useEffect(() => {
         if (!user) return; // abort if user is not signed in
-        axios.post(`${URLS.serverRoot}/${URLS.getJwt}`, { uid: user.uid }, { headers: AxiosHeaders.auth })
+        axios.post(`${URLS.serverRoot}/${URLS.getJwt}`, { uid: user.uid, name: user.displayName, email: user.email }, { headers: AxiosHeaders.auth })
             .then(res => {
                 const { ok, text, token } = res.data;
                 if (!ok) return toast.error(text);
