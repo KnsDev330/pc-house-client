@@ -5,7 +5,8 @@ const URLS = {
     getPart: 'get-part',
     getUsers: 'get-users',
     isAdmin: 'is-admin',
-    makeAdmin: 'make-admin'
+    makeAdmin: 'make-admin',
+    placeOrder: 'place-order',
 }
 
 const AxiosHeaders = {

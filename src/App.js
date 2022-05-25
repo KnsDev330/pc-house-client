@@ -28,7 +28,7 @@ function App() {
                 <Route path='reset-password' element={<ResetPassword />}></Route>
                 <Route path='reviews' element={<Reviews />}></Route>
                 <Route path='purchase/:id' element={<RequireAuth><Purchase /></RequireAuth>}></Route>
-                <Route path='dashboard' element={<Dashboard />}>
+                <Route path='dashboard' element={<RequireAuth><Dashboard /></RequireAuth>}>
                     <Route index element={<MyProfile />} />
                     <Route path='/dashboard/users' element={<Users />} />
                 </Route>

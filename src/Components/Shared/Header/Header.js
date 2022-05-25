@@ -9,6 +9,9 @@ import './Header.css';
 
 const Header = () => {
     const [user] = useAuthState(auth);
+    const isLoginPage = useLocation().pathname.includes('/login');
+    const isRegisterPage = useLocation().pathname.includes('/register');
+
     return (
         <div className="navbar bg-base-100 sticky top-0 z-50">
             <div className="navbar-start">
@@ -19,12 +22,11 @@ const Header = () => {
                     <ul tabIndex="0" className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                         <li><Link to='/'>Home</Link></li>
                         <li><Link to='/reviews'>Reviews</Link></li>
-                        <li><Link to='/items'>All Items</Link></li>
                         <li><Link to='/blogs'>Blogs</Link></li>
                         {
                             user && <>
                                 <li><Link to='/dashboard' className='font-semibold'>Dashboard</Link></li>
-                                <li><button className='btn btn-ghost text-red-500' onClick={() => signOut(auth)}>Logout</button></li>
+                                <li><button className='btn btn-ghost text-red-500' onClick={() => { signOut(auth); localStorage.removeItem('jwt'); }}>Logout</button></li>
                             </>
                         }
 
@@ -36,13 +38,15 @@ const Header = () => {
                 <ul className="menu menu-horizontal p-0">
                     <li><Link to='/'>Home</Link></li>
                     <li><Link to='/reviews'>Reviews</Link></li>
-                    <li><Link to='/items'>All Items</Link></li>
                     <li><Link to='/blogs'>Blogs</Link></li>
                     {user && <li><Link to='/dashboard' className='font-semibold'>Dashboard</Link></li>}
                 </ul>
             </div>
             <div className="navbar-end pr-3">
-                {user ? <button className="btn btn-outline hidden md:inline-flex btn-error" onClick={() => signOut(auth)}>Logout</button> : <Link to='/login' className="btn">Login</Link>}
+                {user ? <button className="btn btn-outline hidden md:inline-flex btn-error" onClick={() => signOut(auth)}>Logout</button> : <>
+                    {isLoginPage && <Link to='/register' className="btn">Register</Link>}
+                    {isRegisterPage && <Link to='/login' className="btn">Login</Link>}
+                </>}
                 {
                     useLocation().pathname.includes('/dashboard') && <label htmlFor="side-nav" class="btn btn-ghost lg:hidden drawer-button lg:hidden"><FiMenu className='h-[25px] w-[25px]' /></label>
                 }
