@@ -7,6 +7,8 @@ const URLS = {
     isAdmin: 'is-admin',
     makeAdmin: 'make-admin',
     placeOrder: 'place-order',
+    getMyOrders: 'get-my-orders',
+    cancelOrder: 'cancel-order'
 }
 
 const AxiosHeaders = {

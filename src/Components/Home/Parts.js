@@ -30,15 +30,15 @@ const Parts = () => {
                 {parts.map(part => {
                     const { name, price, img, desc, minimum, available, id } = part;
 
-                    return <div class="card card-compact w-96 bg-base-100 shadow-xl">
+                    return <div className="card card-compact w-96 bg-base-100 shadow-xl">
                         <figure><img src={img} alt="Shoes" /></figure>
-                        <div class="card-body gap-0">
-                            <h2 class="card-title">{name}</h2>
+                        <div className="card-body gap-0">
+                            <h2 className="card-title">{name}</h2>
                             <p className='flex items-center'><FaTags className='mr-2' /> Price: &nbsp; <span className="text-lg">{price.toLocaleString()} BDT</span> &nbsp; / unit</p>
                             <p className='flex items-center'><GrCircleAlert className='mr-2' /> Minimum: &nbsp; <span className="text-lg">{minimum} units</span></p>
                             <p className='flex items-center'><BsCheck2Circle className='mr-2' /> Available: &nbsp; <span className="text-lg">{available} units</span></p>
                             <p className='flex items-center'><IoNewspaperOutline className='mr-2' /> Description:</p><p><span className="text-sm">{desc}</span></p>
-                            <Link to={`/purchase/${id}`} class="btn btn-primary mt-5">Buy Now</Link>
+                            <Link to={`/purchase/${id}`} className="btn btn-primary mt-5">Buy Now</Link>
                         </div>
                     </div>
                 })}
