@@ -48,7 +48,7 @@ const Header = () => {
                     {isRegisterPage && <Link to='/login' className="btn">Login</Link>}
                 </>}
                 {
-                    useLocation().pathname.includes('/dashboard') && <label htmlFor="side-nav" class="btn btn-ghost lg:hidden drawer-button lg:hidden"><FiMenu className='h-[25px] w-[25px]' /></label>
+                    useLocation().pathname.includes('/dashboard') && <label htmlFor="side-nav" className="btn btn-ghost lg:hidden drawer-button lg:hidden"><FiMenu className='h-[25px] w-[25px]' /></label>
                 }
             </div>
         </div >

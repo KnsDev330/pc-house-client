@@ -6,6 +6,7 @@ import { toast } from 'react-toastify';
 import { URLS } from '../../../Constants/URLS';
 import { auth } from '../../../firebase.init';
 import Loading from '../../Shared/Loading/Loading';
+import OrderPlaced from '../OrderPlaced/OrderPlaced';
 
 import './Purchase.css';
 
@@ -30,6 +31,9 @@ const Purchase = () => {
             .catch(err => toast.error(`Error: ${err?.response?.data?.text || err.message}`))
     }, [id]);
 
+    // order placed page
+    const [placed, setPlaced] = useState(false);
+
     const placeOrder = e => {
         e.preventDefault();
         const data = {};
@@ -46,7 +50,10 @@ const Purchase = () => {
             .then(data => {
                 const { ok, text, result } = data?.data;
                 if (!ok) return toast.warn(`Error: ${text}`);
-                if (result?.acknowledged && result?.insertedId?.length > 5) toast.success(`Success: ${text}`);
+                if (result?.acknowledged && result?.insertedId?.length > 5) {
+                    toast.success(`Success: ${text}`);
+                    setPlaced(true);
+                }
             })
             .catch(err => toast.error(`Error: ${err?.response?.data?.text || err.message}`))
     }
@@ -65,6 +72,8 @@ const Purchase = () => {
         }
     }
 
+
+    if (placed) return <OrderPlaced />;
 
 
 
