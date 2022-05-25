@@ -1,12 +1,30 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import { BiBasket, BiAddToQueue } from 'react-icons/bi';
 import { FaTags, FaUsers, FaUserCircle, FaCommentDots } from 'react-icons/fa';
 
 import './Dashboard.css';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { auth } from '../../../firebase.init';
+import axios from 'axios';
+import { URLS } from '../../../Constants/URLS';
+import { toast } from 'react-toastify';
 
 const Dashboard = () => {
-    const [isAdmin, setIsAdmin] = useState(true);
+
+    // check if admin
+    const [user, loading] = useAuthState(auth);
+    const [isAdmin, setIsAdmin] = useState(false);
+
+    useEffect(() => {
+        if (loading) return;
+        axios.get(`${URLS.serverRoot}/${URLS.isAdmin}/${user.uid}`)
+            .then(res => {
+                setIsAdmin(!!res.data?.isadmin);
+            })
+            .catch(err => { console.log(err); toast.error(`Error: ${err?.response?.data?.text || err.message}`) })
+    }, [user, loading]);
+
 
     return (
         <div>

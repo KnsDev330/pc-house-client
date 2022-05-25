@@ -4,6 +4,7 @@ const URLS = {
     getParts: 'get-parts',
     getPart: 'get-part',
     getUsers: 'get-users',
+    isAdmin: 'is-admin',
     makeAdmin: 'make-admin'
 }
 
