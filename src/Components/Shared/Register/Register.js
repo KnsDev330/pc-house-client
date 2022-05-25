@@ -38,7 +38,9 @@ const Register = () => {
     // set JWT and navigate user on successfull registration
     const [user, , error] = useAuthState(auth);
     useEffect(() => {
-        if (!user) return; // abort if user is not signed in
+        console.log('user', user)
+        if (!user || updatingProfile) return; // abort if user is not signed in
+        console.log('dname', user.displayName);
         axios.post(`${URLS.serverRoot}/${URLS.getJwt}`, { uid: user.uid, name: user.displayName, email: user.email }, { headers: AxiosHeaders.auth })
             .then(res => {
                 const { ok, text, token } = res.data;
@@ -51,7 +53,7 @@ const Register = () => {
                 toast.success(`Success`);
             })
             .catch(err => { console.log(err); toast.error(`Error: ${err?.response?.data?.text || err.message}`) })
-    }, [user, navigate]);
+    }, [user, navigate, updatingProfile]);
 
     // showing error if any
     useEffect(() => { error && toast.error(formatErrMsg(error)) }, [error]);

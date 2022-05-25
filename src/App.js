@@ -17,6 +17,9 @@ import Users from './Components/Admin/Users/Users';
 import MyOrders from './Components/User/MyOrders/MyOrders';
 import AddReview from './Components/User/AddReview/AddReview';
 import Pay from './Components/User/Pay/Pay';
+import ManageOrders from './Components/Admin/ManageOrders/ManageOrders';
+import AddProduct from './Components/Admin/AddProduct/AddProduct';
+import ManageProducts from './Components/Admin/ManageProducts/ManageProducts';
 
 function App() {
     return (
@@ -35,6 +38,9 @@ function App() {
                     <Route index element={<MyProfile />} />
                     <Route path='/dashboard/profile' element={<MyProfile />} />
                     <Route path='/dashboard/users' element={<Users />} />
+                    <Route path='/dashboard/manage-orders' element={<ManageOrders />} />
+                    <Route path='/dashboard/manage-products' element={<ManageProducts />} />
+                    <Route path='/dashboard/add-product' element={<AddProduct />} />
 
                     <Route path='/dashboard/my-orders' element={<MyOrders />} />
                     <Route path='/dashboard/add-review' element={<AddReview />} />

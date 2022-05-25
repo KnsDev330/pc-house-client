@@ -40,7 +40,7 @@ const Dashboard = () => {
                         {isAdmin && <>
                             <li><Link to='manage-orders'><FaTags /> Manage All Orders</Link></li>
                             <li><Link to='add-product'><BiAddToQueue /> Add A Product</Link></li>
-                            <li><Link to='manage-product'><BiBasket /> Manage Products</Link></li>
+                            <li><Link to='manage-products'><BiBasket /> Manage Products</Link></li>
                             <li><Link to='profile'><FaUserCircle /> My Proifle</Link></li>
                             <li><Link to='users'><FaUsers /> Users</Link></li>
                         </>}
