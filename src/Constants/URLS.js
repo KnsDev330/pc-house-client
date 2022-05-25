@@ -8,9 +8,12 @@ const URLS = {
     makeAdmin: 'make-admin',
     placeOrder: 'place-order',
     getMyOrders: 'get-my-orders',
+    getAllOrders: 'get-all-orders',
     getOrder: 'get-order',
     getReviews: 'get-reviews',
     cancelOrder: 'cancel-order',
+    deleteOrder: 'delete-order',
+    orderShipped: 'order-shipped',
     storePayment: 'store-payment',
     createPaymentIntent: 'create-payment-intent'
 }
