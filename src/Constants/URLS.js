@@ -8,7 +8,10 @@ const URLS = {
     makeAdmin: 'make-admin',
     placeOrder: 'place-order',
     getMyOrders: 'get-my-orders',
-    cancelOrder: 'cancel-order'
+    getOrder: 'get-order',
+    cancelOrder: 'cancel-order',
+    storePayment: 'store-payment',
+    createPaymentIntent: 'create-payment-intent'
 }
 
 const AxiosHeaders = {

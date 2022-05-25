@@ -27,10 +27,10 @@ const Parts = () => {
         <div className='my-10 px-5'>
             <p className="text-4xl mb-5 font-s text-center">Order the part you need now</p>
             <div className="parts flex flex-wrap gap-5 justify-center">
-                {parts.map(part => {
+                {parts.map((part, index) => {
                     const { name, price, img, desc, minimum, available, id } = part;
 
-                    return <div className="card card-compact w-96 bg-base-100 shadow-xl">
+                    return <div className="card card-compact w-96 bg-base-100 shadow-xl" key={index}>
                         <figure><img src={img} alt="Shoes" /></figure>
                         <div className="card-body gap-0">
                             <h2 className="card-title">{name}</h2>

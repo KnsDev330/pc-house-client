@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useQuery } from 'react-query';
 import { toast } from 'react-toastify';
 import { URLS } from '../../../Constants/URLS';
-import UserRow from '../../Admin/UserRow/UserRow';
 import Loading from '../../Shared/Loading/Loading';
 import MyOrdersRow from '../MyOredersRow/MyOrdersRow';
 import { FiAlertTriangle } from 'react-icons/fi';
@@ -23,12 +22,13 @@ const MyOrders = () => {
     const [cancelId, setCancelId] = useState('');
     const cancelOrder = productId => axios.delete(`${URLS.serverRoot}/${URLS.cancelOrder}/${cancelId}`, { headers: { authorization: `Bearer ${localStorage.getItem('jwt')}` } })
         .then(data => {
-            console.log(data);
-            if (!data.ok) return toast.warn(`Error: ${data.text}`);
-            // if (data.result.modifiedCount > 0) {
-            //     refetch();
-            //     toast.success(`Successfully made an admin`);
-            // }
+            const { ok, text, result } = data.data;
+            console.log(data.data)
+            if (!ok) return toast.warn(`Error: ${text}`);
+            if (result.acknowledged && result.deletedCount > 0) {
+                refetch();
+                toast.success(`Success: ${text}`);
+            }
         })
         .catch(err => toast.error(`Error: ${err?.response?.data?.text || err.message}`))
 
@@ -73,8 +73,8 @@ const MyOrders = () => {
                         <p className='text-center'>Confirm your order cancellation</p>
                     </div>
                     <div className="modal-action">
-                        <label for="my-modal" className="btn btn-error" onClick={cancelOrder}>Cancel Order</label>
-                        <label for="my-modal" className="btn btn-success" >Keep Order</label>
+                        <label htmlFor="my-modal" className="btn btn-error" onClick={cancelOrder}>Cancel Order</label>
+                        <label htmlFor="my-modal" className="btn btn-success" >Keep Order</label>
                     </div>
                 </div>
             </div>

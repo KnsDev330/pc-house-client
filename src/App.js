@@ -16,6 +16,7 @@ import RequireAuth from './Components/Shared/RequireAuth/RequireAuth';
 import Users from './Components/Admin/Users/Users';
 import MyOrders from './Components/User/MyOrders/MyOrders';
 import AddReview from './Components/User/AddReview/AddReview';
+import Pay from './Components/User/Pay/Pay';
 
 function App() {
     return (
@@ -37,6 +38,7 @@ function App() {
 
                     <Route path='/dashboard/my-orders' element={<MyOrders />} />
                     <Route path='/dashboard/add-review' element={<AddReview />} />
+                    <Route path='/dashboard/pay/:orderid' element={<Pay />} />
                 </Route>
             </Routes>
             <Footer />
