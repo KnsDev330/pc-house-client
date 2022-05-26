@@ -21,6 +21,7 @@ import ManageOrders from './Components/Admin/ManageOrders/ManageOrders';
 import AddProduct from './Components/Admin/AddProduct/AddProduct';
 import ManageProducts from './Components/Admin/ManageProducts/ManageProducts';
 import Test from './Hooks/Test';
+import NotFound from './Components/Shared/NotFound/NotFound';
 
 function App() {
     return (
@@ -48,6 +49,7 @@ function App() {
                     <Route path='/dashboard/add-review' element={<AddReview />} />
                     <Route path='/dashboard/pay/:orderid' element={<Pay />} />
                 </Route>
+                <Route path='*' element={<NotFound />} />
             </Routes>
             <Footer />
 
