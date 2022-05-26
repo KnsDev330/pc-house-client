@@ -12,7 +12,7 @@ const Checkout = ({ order, setSuccess }) => {
     const [processing, setProcessing] = useState(false);
     const [clientSecret, setClientSecret] = useState('');
 
-    const { _id, name, email } = order;
+    const { _id, name } = order;
 
     // get stripe intent
     useEffect(() => {
@@ -21,6 +21,7 @@ const Checkout = ({ order, setSuccess }) => {
                 const { ok, text, intent } = data.data;
                 if (!ok) return toast.warn(`Error: ${text}`);
                 setClientSecret(intent);
+                console.log('intent', intent)
             })
             .catch(err => toast.error(`Error: ${err?.response?.data?.text || err.message}`));
     }, [_id])
@@ -31,25 +32,21 @@ const Checkout = ({ order, setSuccess }) => {
         const card = elements.getElement(CardElement);
         if (card === null) return;
 
-        const { error } = await stripe.createPaymentMethod({
-            type: 'card',
-            card
-        });
+        const { error } = await stripe.createPaymentMethod({ type: 'card', card });
 
         setCardError(error?.message || '');
-        setSuccess('');
         setProcessing(true);
+        console.log('sp', clientSecret, error)
         // confirm card payment
         const { paymentIntent, error: intentError } = await stripe.confirmCardPayment(clientSecret, {
             payment_method: {
-                card,
+                card: card,
                 billing_details: {
-                    name: name,
-                    email: email
+                    name: name
                 },
             },
         });
-
+        console.log('ie', intentError);
         if (intentError) {
             setCardError(intentError?.message);
             setProcessing(false);

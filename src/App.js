@@ -8,7 +8,6 @@ import Login from './Components/Shared/Login/Login';
 import Register from './Components/Shared/Register/Register';
 import 'react-toastify/dist/ReactToastify.css';
 import ResetPassword from './Components/Shared/ResetPassword/ResetPassword';
-import Reviews from './Components/Shared/Reviews/Reviews';
 import Dashboard from './Components/Shared/Dashboard/Dashboard';
 import MyProfile from './Components/Shared/MyProfile/MyProfile';
 import Purchase from './Components/User/Purchase/Purchase';

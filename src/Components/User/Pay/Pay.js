@@ -10,7 +10,7 @@ import Checkout from '../Checkout/Checkout';
 import Paid from '../Paid/Paid';
 
 
-const stripePromise = loadStripe('pk_test_51L3OEDKcKQXQzD7B6XTDSqFrLmeqG8SFoatcNmePY9ggM96KCO0cbYhYOPvXlXUBMWtpl6XNRqgowmqjnCT6aHoc00k7rL5aB8');
+const stripePromise = loadStripe('pk_test_51L3jhFHWGjnaSr7N6YtTnaWvkUVAZMi0SGkMpyrobS0hq6pJwo9YJGKyfzQ2HGfgf2ugs3lDwlxfVm8vh5JT2CMu00j9od8zFj');
 
 const Pay = () => {
     const { orderid } = useParams();
