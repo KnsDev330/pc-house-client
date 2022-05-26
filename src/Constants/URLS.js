@@ -1,4 +1,5 @@
 const URLS = {
+    demoProduct: 'demo',
     serverRoot: 'http://localhost:5000',
     getJwt: 'get-jwt',
     getParts: 'get-parts',
@@ -12,6 +13,7 @@ const URLS = {
     getOrder: 'get-order',
     profile: 'profile',
     addReview: 'add-review',
+    addProduct: 'add-product',
     getReviews: 'get-reviews',
     cancelOrder: 'cancel-order',
     deleteOrder: 'delete-order',
