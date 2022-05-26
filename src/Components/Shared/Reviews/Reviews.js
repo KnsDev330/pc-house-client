@@ -21,16 +21,16 @@ const Reviews = () => {
     }, [])
 
     return (
-        <div className='home-container my-20'>
+        <div className='home-container my-20 p-10 pt-16'>
             <div className="feedbacks-section mb-5 pb-5">
                 <h3 className='text-center text-2xl font-bold text-orange-400'>Some Reviews</h3>
                 <small className='block text-center mb-4'>You can see some reviews of our customers here</small>
-                <div className="reviews bg-white p-8 flex flex-wrap gap-5 justify-center">
+                <div className="reviews  flex flex-wrap gap-5 justify-center mt-8">
                     {
                         reviews.map(review => {
                             const { _id, name, rating, time, text, img } = review;
 
-                            return <div key={_id} className='w-[360px] max-w-[90%] flex'>
+                            return <div key={_id} className='w-[360px] max-w-[90%] flex bg-white'>
                                 <div className='comment hover:shadow-xl transition duration-500 shadow-sm flex flex-col mx-auto p-3 px-lg-5 border border-1 rounded rounded-5 w-full'>
                                     <div className="comment-up-section flex">
                                         <img src={img} alt="avatar" className='rounded-full border-2 border-success w-[50px] h-[50px] mr-2' />
