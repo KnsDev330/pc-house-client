@@ -34,7 +34,7 @@ const Reviews = () => {
                             return <div key={id} className='w-[360px] max-w-[90%] flex'>
                                 <div className='comment shadow-sm flex flex-col mx-auto p-3 px-lg-5 border border-1 rounded rounded-5 w-full'>
                                     <div className="comment-up-section flex">
-                                        <img src={img} alt="user avatar" className='rounded-full border-2 border-success w-[50px] h-[50px] mr-2' />
+                                        <img src={img} alt="avatar" className='rounded-full border-2 border-success w-[50px] h-[50px] mr-2' />
                                         <div className="flex justify-between items-center grow">
                                             <div className="flex flex-col ms-3">
                                                 <div className="">{name}</div>

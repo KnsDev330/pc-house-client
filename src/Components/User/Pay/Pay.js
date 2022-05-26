@@ -23,10 +23,10 @@ const Pay = () => {
     }).then(res => res.json()));
 
     useEffect(() => {
-        console.log(order)
+        console.log('order', order)
     }, [order])
 
-    if (isLoading) return <Loading />
+    if (isLoading || !order) return <Loading />
     if (success) return <Paid />
     if (!order.ok) { toast.warn(`Error: ${order.text}`); return }
 
@@ -35,7 +35,7 @@ const Pay = () => {
             <div className="card w-50 max-w-md bg-base-100 shadow-xl my-12">
                 <div className="card-body">
                     <p className="text-success font-bold">Hello, {order.order?.name}</p>
-                    <h2 className="text-xl">Pay for: <span className="text-2xl text-pink-500">{order.order?.partName}</span></h2>
+                    <h2 className="text-xl">Pay for: <span className="text-2xl text-pink-500">{order.order.partName}</span></h2>
                     <p>Please pay: <strong>${(order.order.unitPrice * order.order.quantity).toLocaleString()}</strong></p>
                 </div>
             </div>

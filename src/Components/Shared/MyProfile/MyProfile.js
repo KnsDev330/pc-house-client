@@ -79,28 +79,28 @@ const MyProfile = () => {
                             </div>
                             <div className="form-control w-full max-w-xs">
                                 <label className="label py-0 pt-2"><span className="label-text">Education: </span></label>
-                                <input type="text" defaultValue={profile.education} placeholder="Enter your education" className="input input-bordered w-full max-w-xs" name='education' minLength='3' />
+                                <input type="text" defaultValue={profile?.education} placeholder="Enter your education" className="input input-bordered w-full max-w-xs" name='education' minLength='3' />
                                 <label className="label pt-0">
                                     <span className="label-text-alt text-red-400">{err.education && err.education}</span>
                                 </label>
                             </div>
                             <div className="form-control w-full max-w-xs">
                                 <label className="label py-0 pt-2"><span className="label-text">Phone: </span></label>
-                                <input type="text" defaultValue={profile.phone} placeholder="01xxx-xxxxxx" className="input input-bordered w-full max-w-xs" name='phone' minLength='10' />
+                                <input type="text" defaultValue={profile?.phone} placeholder="01xxx-xxxxxx" className="input input-bordered w-full max-w-xs" name='phone' minLength='10' />
                                 <label className="label pt-0">
                                     <span className="label-text-alt text-red-400">{err.phone && err.phone}</span>
                                 </label>
                             </div>
                             <div className="form-control w-full max-w-xs">
                                 <label className="label py-0"><span className="label-text">City: </span></label>
-                                <input type="text" defaultValue={profile.city} placeholder="Enter your city" className="input input-bordered w-full max-w-xs" name='city' minLength='3' />
+                                <input type="text" defaultValue={profile?.city} placeholder="Enter your city" className="input input-bordered w-full max-w-xs" name='city' minLength='3' />
                                 <label className="label py-0 pb-2">
                                     <span className="label-text-alt text-red-400">{err.city && err.city}</span>
                                 </label>
                             </div>
                             <div className="form-control w-full max-w-xs">
                                 <label className="label py-0"><span className="label-text">Linked In Profile: </span></label>
-                                <input type="text" defaultValue={profile.linkedin} placeholder="Enter your city Linked In Profile url" className="input input-bordered w-full max-w-xs" name='linkedin' minLength="4" />
+                                <input type="text" defaultValue={profile?.linkedin} placeholder="Enter your city Linked In Profile url" className="input input-bordered w-full max-w-xs" name='linkedin' minLength="4" />
                                 <label className="label py-0 pb-2">
                                     <span className="label-text-alt text-red-400">{err.linkedin && err.linkedin}</span>
                                 </label>

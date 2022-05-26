@@ -3,6 +3,7 @@ import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import { URLS } from '../../../Constants/URLS';
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import Loading from '../../Shared/Loading/Loading';
 
 const Checkout = ({ order, setSuccess }) => {
     const stripe = useStripe();
@@ -26,10 +27,11 @@ const Checkout = ({ order, setSuccess }) => {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-
+        console.log('me4');
         if (!stripe || !elements) return;
         const card = elements.getElement(CardElement);
         if (card === null) return;
+        console.log('me3');
 
         const { error } = await stripe.createPaymentMethod({
             type: 'card',
@@ -48,8 +50,8 @@ const Checkout = ({ order, setSuccess }) => {
                     email: email
                 },
             },
-        },
-        );
+        });
+        console.log('me');
 
         if (intentError) {
             console.log('intentError', intentError)
@@ -65,38 +67,45 @@ const Checkout = ({ order, setSuccess }) => {
             axios.patch(`${URLS.serverRoot}/${URLS.storePayment}`, { payment }, { headers: { 'authorization': `Bearer ${localStorage.getItem('jwt')}` } })
                 .then(data => {
                     const { ok, text } = data.data;
-                    console.log(data.data)
+                    console.log(data.data);
                     if (!ok) return toast.warn(`Error: ${text}`);
                     setProcessing(false);
                     toast.success(`Success: ${text}`);
                 })
-                .catch(err => toast.error(`Error: ${err?.response?.data?.text || err.message}`))
+                .catch(err => { toast.error(`Error: ${err?.response?.data?.text || err.message}`); setProcessing(false) })
         }
     }
+    console.log('me2');
     return (
         <>
-            <form onSubmit={handleSubmit}>
-                <CardElement
-                    options={{
-                        style: {
-                            base: {
-                                fontSize: '16px',
-                                color: '#424770',
-                                '::placeholder': {
-                                    color: '#aab7c4',
+            {
+                processing ? <>
+                    <Loading />
+                </> : <>
+                    <form onSubmit={handleSubmit}>
+                        <CardElement
+                            options={{
+                                style: {
+                                    base: {
+                                        fontSize: '16px',
+                                        color: '#424770',
+                                        '::placeholder': {
+                                            color: '#aab7c4',
+                                        },
+                                    },
+                                    invalid: {
+                                        color: '#9e2146',
+                                    },
                                 },
-                            },
-                            invalid: {
-                                color: '#9e2146',
-                            },
-                        },
-                    }}
-                />
-                <button className='btn btn-success btn-sm mt-4' type="submit" disabled={!stripe || !clientSecret || processing}>
-                    Pay
-                </button>
-            </form>
-            {cardError && <p className='text-red-500'>{cardError}</p>}
+                            }}
+                        />
+                        <button className='btn btn-success btn-sm mt-4' type="submit" disabled={!stripe || !clientSecret || processing}>
+                            Pay
+                        </button>
+                    </form>
+                    {cardError && <p className='text-red-500'>{cardError}</p>}
+                </>
+            }
         </>
     );
 };
