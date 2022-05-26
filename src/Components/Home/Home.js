@@ -5,6 +5,7 @@ import './Home.css';
 import Reviews from '../Shared/Reviews/Reviews';
 import Banner from './Banner';
 import About from './About';
+import StayInTouch from './StayInTouch';
 
 const Home = () => {
     return (
@@ -12,6 +13,7 @@ const Home = () => {
             <Banner />
             <About />
             <Parts />
+            <StayInTouch />
             <Reviews />
             <BussinessSummary />
         </div>

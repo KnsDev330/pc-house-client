@@ -21,7 +21,7 @@ const Reviews = () => {
     }, [])
 
     return (
-        <div className='home-container my-20 p-10 pt-16'>
+        <div className='home-container my-10 py-10'>
             <div className="feedbacks-section mb-5 pb-5">
                 <h3 className='text-center text-2xl font-bold text-orange-400'>Some Reviews</h3>
                 <small className='block text-center mb-4'>You can see some reviews of our customers here</small>

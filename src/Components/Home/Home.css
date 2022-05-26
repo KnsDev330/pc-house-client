@@ -31,3 +31,14 @@
 .my-btn:hover {
     transform: scale(1.1);
 }
+
+.my-custom-input {
+    transition: 0.3s;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.my-custom-input:focus {
+    border: 2px solid rgb(251 146 60);
+    outline: none;
+}
