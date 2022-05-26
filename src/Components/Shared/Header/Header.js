@@ -5,7 +5,6 @@ import { Link, useLocation } from 'react-router-dom';
 import { auth } from '../../../firebase.init';
 import { FiMenu } from 'react-icons/fi';
 
-import './Header.css';
 
 const Header = () => {
     const [user] = useAuthState(auth);

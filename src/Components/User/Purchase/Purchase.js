@@ -8,7 +8,6 @@ import { auth } from '../../../firebase.init';
 import Loading from '../../Shared/Loading/Loading';
 import OrderPlaced from '../OrderPlaced/OrderPlaced';
 
-import './Purchase.css';
 
 const Purchase = () => {
 
@@ -42,11 +41,7 @@ const Purchase = () => {
             data[elem.name] = elem.value;
         }
         console.log(data)
-        axios.post(`${URLS.serverRoot}/${URLS.placeOrder}`, { data }, {
-            headers: {
-                authorization: `Bearer ${localStorage.getItem('jwt')}`
-            }
-        })
+        axios.post(`${URLS.serverRoot}/${URLS.placeOrder}`, { data }, { headers: { authorization: `Bearer ${localStorage.getItem('jwt')}` } })
             .then(data => {
                 const { ok, text, result } = data?.data;
                 if (!ok) return toast.warn(`Error: ${text}`);

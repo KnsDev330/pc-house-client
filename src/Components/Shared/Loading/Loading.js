@@ -3,7 +3,7 @@ import './Loading.css';
 
 const Loading = () => {
     return (
-        <div>
+        <div className='flex m-10 justify-center items-center w-full'>
             <div className="lds-ripple"><div></div><div></div></div>
         </div>
     );

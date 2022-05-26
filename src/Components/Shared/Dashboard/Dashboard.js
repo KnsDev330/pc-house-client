@@ -2,8 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import { BiBasket, BiAddToQueue } from 'react-icons/bi';
 import { FaTags, FaUsers, FaUserCircle, FaCommentDots } from 'react-icons/fa';
-
-import './Dashboard.css';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth } from '../../../firebase.init';
 import axios from 'axios';

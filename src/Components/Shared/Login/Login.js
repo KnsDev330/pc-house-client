@@ -13,7 +13,6 @@ import Loading from '../Loading/Loading';
 import googleSvg from '../../../images/google.svg';
 import twitterSvg from '../../../images/twitter.svg';
 
-import './Login.css';
 
 const Login = () => {
     // react hook form
