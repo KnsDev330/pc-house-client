@@ -14,7 +14,7 @@ const Users = () => {
         }
     }).then(res => res.json()));
 
-    if (isLoading) return <Loading />;
+    if (isLoading || !users) return <Loading />;
 
     if (!users.ok) {
         toast.error(`Error: ${users?.text}`);

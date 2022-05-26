@@ -11,6 +11,7 @@ const URLS = {
     getAllOrders: 'get-all-orders',
     getOrder: 'get-order',
     profile: 'profile',
+    addReview: 'add-review',
     getReviews: 'get-reviews',
     cancelOrder: 'cancel-order',
     deleteOrder: 'delete-order',

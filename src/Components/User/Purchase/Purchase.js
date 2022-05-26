@@ -85,7 +85,6 @@ const Purchase = () => {
                             <img src={`/${part.img}`} alt={part.name} />
 
                             <input type="hidden" defaultValue={part.id} name='partId' className="input input-bordered w-full max-w-xs" disabled />
-                            <input type="hidden" defaultValue={user.uid} name='uid' className="input input-bordered w-full max-w-xs" disabled />
 
                             <div className="form-control w-full max-w-xs">
                                 <label className="label py-0 pt-2"><span className="label-text">Part: </span></label>
