@@ -12,13 +12,13 @@ const StayInTouch = () => {
                     <div className="bg-white mt-[-20vh] rounded-lg lg:w-[80%] shadow-xl lg:flex py-5 md:py-10 lg:py-20 lg:px-10">
                         <div className='p-5'>
                             <h1 className="text-4xl font-semibold pb-5">Get Every Updates!</h1>
-                            <p className="text-xl font-meduim text-gray-400">PcHouse, A Industry & Manufacturing Services Provider. Suitable For Factory, Manufacturing, Industry, Engineering, Construction And Any Related Industry Care Field.</p>
+                            <p className="text-xl font-mdeium text-gray-400">PcHouse, A Industry & Manufacturing Services Provider. Suitable For Factory, Manufacturing, Industry, Engineering, Construction And Any Related Industry Care Field.</p>
                             <hr className='my-5' />
-                            <h2 className="text-2xl font-meduim pb-5">Do You Have Any Questions!</h2>
-                            <div className='flex gap-5'><FiPhoneCall className='text-orange-400 text-3xl' /> <strong className='text-md font-meduim md:text-xl text-blue-500'>+8801742424242</strong></div>
-                            <div className='flex gap-5'><MdMarkEmailRead className='text-orange-400 text-3xl' /> <strong className='text-md font-meduim md:text-xl text-blue-500'>me@kns.dev</strong></div>
+                            <h2 className="text-2xl font-mdeium pb-5">Do You Have Any Questions!</h2>
+                            <div className='flex gap-5'><FiPhoneCall className='text-orange-400 text-3xl' /> <strong className='text-md font-mdeium md:text-xl text-blue-500'>+8801742424242</strong></div>
+                            <div className='flex gap-5'><MdMarkEmailRead className='text-orange-400 text-3xl' /> <strong className='text-md font-mdeium md:text-xl text-blue-500'>me@kns.dev</strong></div>
                             <div className='flex gap-5'><FaTelegram className='text-orange-400 text-3xl' />
-                                <strong className='text-md font-meduim md:text-xl text-blue-500'><a href='https://t.me/knsdev' target='blank'>Telegram</a></strong>
+                                <strong className='text-md font-mdeium md:text-xl text-blue-500'><a href='https://t.me/knsdev' target='blank'>Telegram</a></strong>
                             </div>
                         </div>
                         <div className='p-5'>

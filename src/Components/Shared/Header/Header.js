@@ -20,7 +20,7 @@ const Header = () => {
                     <ul tabIndex="0" className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                         {user && <li><strong>{user.displayName}</strong></li>}
                         <li><Link to='/'>Home</Link></li>
-                        <li><Link to='/reviews'>Reviews</Link></li>
+                        <li><Link to='/products'>Products</Link></li>
                         <li><Link to='/blogs'>Blogs</Link></li>
                         {
                             user && <>
@@ -36,8 +36,9 @@ const Header = () => {
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal p-0">
                     <li><Link to='/'>Home</Link></li>
-                    <li><Link to='/reviews'>Reviews</Link></li>
+                    <li><Link to='/products'>Products</Link></li>
                     <li><Link to='/blogs'>Blogs</Link></li>
+                    <li><Link to='/404👻'>👻 404</Link></li>
                     {user && <li><Link to='/dashboard' className='font-semibold'>Dashboard</Link></li>}
                 </ul>
             </div>

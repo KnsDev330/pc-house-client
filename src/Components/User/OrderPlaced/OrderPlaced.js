@@ -11,7 +11,7 @@ const OrderPlaced = () => {
                 <FaCheckCircle className='text-8xl text-green-500' />
                 <h3 className="text-4xl my-4">Success</h3>
                 <p className='text-center'>Your order has been successfully placed.</p>
-                <p className='text-center'>You can view the order and pay for it from your <Link to='/dashboard/my-orders' className='text-blue-500'>dashboard</Link></p>
+                <p className='text-center'>You can view the order and pay for it from your <Link to='/dashboard/my-orders' className='text-blue-500'>Dashboard</Link></p>
             </div>
         </div>
     );

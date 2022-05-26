@@ -1,6 +1,6 @@
 const URLS = {
     demoProduct: 'demo',
-    serverRoot: 'http://localhost:5000',
+    serverRoot: 'https://knsdev-pchouse.herokuapp.com',
     getJwt: 'get-jwt',
     getParts: 'get-parts',
     getPart: 'get-part',

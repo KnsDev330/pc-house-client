@@ -20,8 +20,9 @@ import Pay from './Components/User/Pay/Pay';
 import ManageOrders from './Components/Admin/ManageOrders/ManageOrders';
 import AddProduct from './Components/Admin/AddProduct/AddProduct';
 import ManageProducts from './Components/Admin/ManageProducts/ManageProducts';
-import Test from './Hooks/Test';
 import NotFound from './Components/Shared/NotFound/NotFound';
+import Blogs from './Components/Shared/Blogs/Blogs';
+import Parts from './Components/Home/Parts';
 
 function App() {
     return (
@@ -34,8 +35,8 @@ function App() {
                 <Route path='login' element={<Login />}></Route>
                 <Route path='register' element={<Register />}></Route>
                 <Route path='reset-password' element={<ResetPassword />}></Route>
-                <Route path='reviews' element={<Reviews />}></Route>
-                <Route path='test' element={<Test />}></Route>
+                <Route path='products' element={<Parts />}></Route>
+                <Route path='blogs' element={<Blogs />}></Route>
                 <Route path='purchase/:id' element={<RequireAuth><Purchase /></RequireAuth>}></Route>
                 <Route path='dashboard' element={<RequireAuth><Dashboard /></RequireAuth>}>
                     <Route index element={<MyProfile />} />
