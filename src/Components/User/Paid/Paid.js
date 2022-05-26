@@ -2,7 +2,7 @@ import React from 'react';
 import { FaCheckCircle } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
-const Paid = () => {
+const Paid = ({ txid }) => {
     return (
         <div className='mx-auto w-[500px] max-w-full px-4 my-5 flex flex-col items-center grow-1'>
             <h2 className="text-2xl font-bold text-amber-400">Order Paid</h2>
@@ -12,6 +12,7 @@ const Paid = () => {
                 <h3 className="text-4xl my-4">Success</h3>
                 <p className='text-center'>You have successfully paid for the order.</p>
                 <p className='text-center'>You can view the order on your <Link to='/dashboard/my-orders' className='text-blue-500'>Dashboard</Link></p>
+                <p>TxID: <strong className='text-green-500'>{txid}</strong></p>
             </div>
         </div>
     );

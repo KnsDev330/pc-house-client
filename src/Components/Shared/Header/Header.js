@@ -3,7 +3,7 @@ import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link, useLocation } from 'react-router-dom';
 import { auth } from '../../../firebase.init';
-import { FiMenu } from 'react-icons/fi';
+import { FiMenu, FiUser } from 'react-icons/fi';
 
 
 const Header = () => {
@@ -18,6 +18,7 @@ const Header = () => {
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                     </label>
                     <ul tabIndex="0" className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
+                        {user && <li><strong>{user.displayName}</strong></li>}
                         <li><Link to='/'>Home</Link></li>
                         <li><Link to='/reviews'>Reviews</Link></li>
                         <li><Link to='/blogs'>Blogs</Link></li>
@@ -41,6 +42,7 @@ const Header = () => {
                 </ul>
             </div>
             <div className="navbar-end pr-3">
+                {user && <p className='hidden sm:flex mr-5 flex items-center gap-3'><FiUser /><span>Hello, <strong>{user.displayName}</strong></span></p>}
                 {user ? <button className="btn btn-outline hidden md:inline-flex btn-error" onClick={() => { signOut(auth); localStorage.removeItem('jwt'); }}>Logout</button> : <>
                     {isLoginPage && <Link to='/register' className="btn">Register</Link>}
                     {!isLoginPage && <Link to='/login' className="btn">Login</Link>}

@@ -1,15 +1,12 @@
-.blur {
-    background-image: url('./../../../public/img/summary-bg.jpg');
-    -webkit-filter: blur(8px);
-    filter: blur(8px);
+.summary-div {
+    background-image: url('../../../public/img/summary-bg.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 }
 
-.summary-div {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 2;
+.summary-text {
+    text-shadow: 0 0 13px black;
 }
 
 .home-banner {

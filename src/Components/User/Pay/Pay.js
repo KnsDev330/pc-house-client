@@ -24,7 +24,7 @@ const Pay = () => {
 
 
     if (isLoading || !order) return <Loading />
-    if (success) return <Paid />
+    if (success) return <Paid txid={success} />
     if (!order.ok) { toast.warn(`Error: ${order.text}`); return }
 
     return (

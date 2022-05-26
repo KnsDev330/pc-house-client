@@ -3,7 +3,7 @@ import React from 'react';
 const Banner = () => {
     return (
         <div className='home-banner w-full h-[calc(100vh-64px)]'>
-            <div className='h-[calc(100vh-64px)] px-[10%] flex flex-col justify-center pb-[10%]'>
+            <div className='h-[calc(100vh-64px)] px-[10%] flex flex-col justify-center pb-[5%]'>
                 <div className='w-[800px] max-w-[90%]'>
                     <p className="font-bold text-white text-lg">Ready to Make your Dream</p>
                     <h1 className="text-4xl md:text-7xl font-semibold text-white my-5">The Best Solution for PC Components</h1>

@@ -30,7 +30,7 @@ const Reviews = () => {
                         reviews.map(review => {
                             const { _id, name, rating, time, text, img } = review;
 
-                            return <div key={_id} className='w-[360px] max-w-[90%] flex bg-white'>
+                            return <div key={_id} className='w-[400px] max-w-[90%] flex bg-white'>
                                 <div className='comment hover:shadow-xl transition duration-500 shadow-sm flex flex-col mx-auto p-3 px-lg-5 border border-1 rounded rounded-5 w-full'>
                                     <div className="comment-up-section flex">
                                         <img src={img} alt="avatar" className='rounded-full border-2 border-success w-[50px] h-[50px] mr-2' />
