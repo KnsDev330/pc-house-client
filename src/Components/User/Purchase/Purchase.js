@@ -41,6 +41,7 @@ const Purchase = () => {
         for (const elem of elements) {
             data[elem.name] = elem.value;
         }
+        data.partId = id;
         axios.post(`${URLS.serverRoot}/${URLS.placeOrder}`, { data }, { headers: { authorization: `Bearer ${localStorage.getItem('jwt')}` } })
             .then(data => {
                 setShowLoading(false);
@@ -83,8 +84,6 @@ const Purchase = () => {
                         <form onSubmit={placeOrder} onChange={changed} className='flex flex-col items-center w-full'>
 
                             <img src={`/${part.img}`} alt={part.name} />
-
-                            <input type="hidden" defaultValue={part.id} name='partId' className="input input-bordered w-full max-w-xs" disabled />
 
                             <div className="form-control w-full max-w-xs">
                                 <label className="label py-0 pt-2"><span className="label-text">Part: </span></label>

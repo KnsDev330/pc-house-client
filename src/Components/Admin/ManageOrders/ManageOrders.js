@@ -52,7 +52,7 @@ const ManageOrders = () => {
     }
 
     return (
-        <div>
+        <div className='my-10'>
             <h2 className="text-2xl text-center mt-5">All Orders</h2>
             {
                 showLoading ? <>
@@ -62,7 +62,7 @@ const ManageOrders = () => {
                         <table className="table w-full">
                             <thead>
                                 <tr>
-                                    <th>No.</th>
+                                    <th className='text-center'>No.</th>
                                     <th>User</th>
                                     <th>Part</th>
                                     <th>Status</th>
@@ -71,7 +71,7 @@ const ManageOrders = () => {
                             <tbody>
                                 {
                                     orders.orders.map(({ partName, status, _id, email, paid }, i) => <tr key={i}>
-                                        <th>{i + 1}</th>
+                                        <th className='text-center'>{i + 1}</th>
                                         <th>{email}</th>
                                         <td title={partName}>{partName.slice(0, 15)} ... {partName.slice(-15)}</td>
                                         <td>{

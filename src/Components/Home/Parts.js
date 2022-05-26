@@ -10,6 +10,7 @@ import { Link } from 'react-router-dom';
 
 
 const Parts = () => {
+
     // load items
     const [parts, setParts] = useState([]);
     useEffect(() => {
@@ -27,7 +28,7 @@ const Parts = () => {
             <p className="text-4xl mb-5 font-s text-center">Order the part you need now</p>
             <div className="parts flex flex-wrap gap-5 justify-center">
                 {parts.map((part, index) => {
-                    const { name, price, img, desc, minimum, available, id } = part;
+                    const { name, price, img, desc, minimum, available, _id } = part;
 
                     return <div className="card card-compact w-96 bg-base-100 shadow-sm hover:shadow-xl transition duration-300" key={index}>
                         <figure><img src={img} alt="Shoes" /></figure>
@@ -49,7 +50,7 @@ const Parts = () => {
                                 <span className="text-gray-400 inline-flex items-center"><IoNewspaperOutline className='mr-2' /> Description:</span>
                             </p>
                             <p><span className="text-sm">{desc}</span></p>
-                            <Link to={`/purchase/${id}`} className="btn btn-primary mt-5">Buy Now</Link>
+                            <Link to={`/purchase/${_id}`} className="btn btn-primary mt-5">Buy Now</Link>
                         </div>
                     </div>
                 })}

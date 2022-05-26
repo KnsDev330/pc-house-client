@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 import { URLS } from '../../../Constants/URLS';
 import Loading from '../../Shared/Loading/Loading';
@@ -24,6 +24,9 @@ const AddProduct = () => {
             })
             .catch(err => toast.error(`Error: ${err?.response?.data?.text || err.message}`))
     }
+    useEffect(() => {
+        console.log(fake);
+    }, [fake])
 
 
 
@@ -45,7 +48,7 @@ const AddProduct = () => {
     }
 
     return (
-        <div className='mx-auto w-[500px] max-w-full px-4 my-5 flex flex-col items-center grow-1'>
+        <div className='mx-auto w-[500px] max-w-full px-4 my-10 flex flex-col items-center grow-1'>
             <h2 className="text-2xl font-bold text-amber-400">Add New Product</h2>
             <small>Admins can add new products from here</small>
             <div className='bg-white border-2 rounded-xl flex flex-col items-center my-4 py-4 lg:py-8 px-4 w-full'>
@@ -53,11 +56,7 @@ const AddProduct = () => {
                     showLoading ? <Loading></Loading> : <>
 
                         <form onSubmit={addProduct} className='flex flex-col items-center w-full'>
-
-                            <div className="form-control w-full max-w-xs">
-                                <label className="label py-0 pt-2"><span className="label-text">ID: </span></label>
-                                <input defaultValue={fake?.id} placeholder="Enter Product ID" className="input input-bordered w-full max-w-xs" name='id' required />
-                            </div>
+                            <span>{fake?.name}</span>
                             <div className="form-control w-full max-w-xs">
                                 <label className="label py-0 pt-2"><span className="label-text">Name: </span></label>
                                 <input defaultValue={fake?.name} placeholder="Enter Product Name" className="input input-bordered w-full max-w-xs" name='name' required />

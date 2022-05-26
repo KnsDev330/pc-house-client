@@ -44,7 +44,7 @@ const MyOrders = () => {
                 <table className="table w-full">
                     <thead>
                         <tr>
-                            <th>No.</th>
+                            <th className='text-center'>No.</th>
                             <th>Part</th>
                             <th>Status</th>
                             <th>TxID</th>

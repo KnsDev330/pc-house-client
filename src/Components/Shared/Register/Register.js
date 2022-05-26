@@ -24,7 +24,7 @@ const Register = () => {
 
     // handle email registration
     const [updateProfile, updatingProfile, updateProfileError] = useUpdateProfile(auth);
-    const [createUser, , emailLoading, emailError] = useCreateUserWithEmailAndPassword(auth);
+    const [createUser, , emailLoading, emailError] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
     const onSubmit = async (data) => {
         if (data.password.length < 6) return toast.error(`Password must be at least 6 characters long`);
         await createUser(data.email, data.password);

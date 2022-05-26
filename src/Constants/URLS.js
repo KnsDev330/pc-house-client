@@ -17,6 +17,7 @@ const URLS = {
     getReviews: 'get-reviews',
     cancelOrder: 'cancel-order',
     deleteOrder: 'delete-order',
+    deleteProduct: 'delete-product',
     orderShipped: 'order-shipped',
     storePayment: 'store-payment',
     createPaymentIntent: 'create-payment-intent'

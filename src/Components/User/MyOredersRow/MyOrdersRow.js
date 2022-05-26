@@ -5,7 +5,7 @@ const MyOrdersRow = ({ num, order, setCancelId }) => {
     const { partName, _id, paid, txid, status } = order;
 
     return (<tr>
-        <th>{num + 1}</th>
+        <th className='text-center'>{num + 1}</th>
         <td title={partName}>{partName.slice(0, 15)} ... {partName.slice(-15)}</td>
         <td>{paid ? <>Paid</> : <>
             <Link to={`/dashboard/pay/${_id}`} className='btn btn-xs btn-success mr-1'>Pay</Link>
