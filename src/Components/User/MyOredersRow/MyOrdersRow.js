@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const MyOrdersRow = ({ num, order, setCancelId, refetch }) => {
-    const { partName, _id, paid, txid } = order;
+    const { partName, _id, paid, txid, shipped } = order;
 
     return (<tr>
         <th>{num + 1}</th>
@@ -12,6 +12,7 @@ const MyOrdersRow = ({ num, order, setCancelId, refetch }) => {
             <label htmlFor='my-modal' className='btn btn-xs btn-error' onClick={() => setCancelId(_id)}>Cancel</label>
         </>}</td>
         <td>{txid ? txid : `Not paid yet`}</td>
+        <td>{shipped === 'shipped' ? <p className='text-green-400'>Yes</p> : <small className='text-red-500'>No</small>}</td>
     </tr>);
 };
 

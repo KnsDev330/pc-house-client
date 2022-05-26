@@ -49,6 +49,7 @@ const MyOrders = () => {
                             <th>Part</th>
                             <th>Status</th>
                             <th>TxID</th>
+                            <th>Shipped</th>
                         </tr>
                     </thead>
                     <tbody>
