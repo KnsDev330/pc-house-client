@@ -27,11 +27,9 @@ const Checkout = ({ order, setSuccess }) => {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        console.log('me4');
         if (!stripe || !elements) return;
         const card = elements.getElement(CardElement);
         if (card === null) return;
-        console.log('me3');
 
         const { error } = await stripe.createPaymentMethod({
             type: 'card',
@@ -51,10 +49,8 @@ const Checkout = ({ order, setSuccess }) => {
                 },
             },
         });
-        console.log('me');
 
         if (intentError) {
-            console.log('intentError', intentError)
             setCardError(intentError?.message);
             setProcessing(false);
         }
@@ -67,7 +63,6 @@ const Checkout = ({ order, setSuccess }) => {
             axios.patch(`${URLS.serverRoot}/${URLS.storePayment}`, { payment }, { headers: { 'authorization': `Bearer ${localStorage.getItem('jwt')}` } })
                 .then(data => {
                     const { ok, text } = data.data;
-                    console.log(data.data);
                     if (!ok) return toast.warn(`Error: ${text}`);
                     setProcessing(false);
                     toast.success(`Success: ${text}`);
@@ -75,7 +70,7 @@ const Checkout = ({ order, setSuccess }) => {
                 .catch(err => { toast.error(`Error: ${err?.response?.data?.text || err.message}`); setProcessing(false) })
         }
     }
-    console.log('me2');
+
     return (
         <>
             {

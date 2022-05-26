@@ -73,7 +73,7 @@ const ManageOrders = () => {
                             </thead>
                             <tbody>
                                 {
-                                    orders.orders.map(({ partName, status, _id, email, paid }, i) => <tr>
+                                    orders.orders.map(({ partName, status, _id, email, paid }, i) => <tr key={i}>
                                         <th>{i + 1}</th>
                                         <th>{email}</th>
                                         <td title={partName}>{partName.slice(0, 15)} ... {partName.slice(-15)}</td>

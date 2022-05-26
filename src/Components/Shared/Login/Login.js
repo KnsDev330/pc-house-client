@@ -36,7 +36,6 @@ const Login = () => {
         if (!user) return; // abort if user is not signed in
         axios.post(`${URLS.serverRoot}/${URLS.getJwt}`, { uid: user.uid, name: user.displayName, email: user.email }, { headers: AxiosHeaders.auth })
             .then(res => {
-                console.log(res.data);
                 const { ok, text, token } = res.data;
                 if (!ok) return toast.error(text);
                 if (!token) { toast.error(`Error: Cannot get JWT`); signOut(auth); return; }
@@ -46,7 +45,7 @@ const Login = () => {
                 localStorage.removeItem("toLocation");
                 toast.success(`Success`);
             })
-            .catch(err => { console.log(err); toast.error(`Error: ${err?.response?.data?.text || err.message}`) })
+            .catch(err => { toast.error(`Error: ${err?.response?.data?.text || err.message}`) })
     }, [user, navigate]);
 
     // showing error if any

@@ -11,17 +11,17 @@ import { toast } from 'react-toastify';
 const Dashboard = () => {
 
     // check if admin
-    const [user, loading] = useAuthState(auth);
+    const [user] = useAuthState(auth);
     const [isAdmin, setIsAdmin] = useState(false);
 
     useEffect(() => {
-        if (loading) return;
+        if (!user) return;
         axios.get(`${URLS.serverRoot}/${URLS.isAdmin}/${user.uid}`)
             .then(res => {
                 setIsAdmin(!!res.data?.isadmin);
             })
-            .catch(err => { console.log(err); toast.error(`Error: ${err?.response?.data?.text || err.message}`) })
-    }, [user, loading]);
+            .catch(err => { toast.error(`Error: ${err?.response?.data?.text || err.message}`) })
+    }, [user]);
 
 
     return (

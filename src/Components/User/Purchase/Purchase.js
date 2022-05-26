@@ -41,7 +41,6 @@ const Purchase = () => {
         for (const elem of elements) {
             data[elem.name] = elem.value;
         }
-        console.log(data)
         axios.post(`${URLS.serverRoot}/${URLS.placeOrder}`, { data }, { headers: { authorization: `Bearer ${localStorage.getItem('jwt')}` } })
             .then(data => {
                 setShowLoading(false);
@@ -59,7 +58,6 @@ const Purchase = () => {
     // set /show form errors
     const [err, setErr] = useState({});
     const changed = e => {
-        // console.log(e.target.name, e.target.value)
         const target = e.target.name;
         const value = e.target.value;
         if (target === 'quantity') {
