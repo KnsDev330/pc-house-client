@@ -21,7 +21,6 @@ const Checkout = ({ order, setSuccess }) => {
                 const { ok, text, intent } = data.data;
                 if (!ok) return toast.warn(`Error: ${text}`);
                 setClientSecret(intent);
-                console.log('intent', intent)
             })
             .catch(err => toast.error(`Error: ${err?.response?.data?.text || err.message}`));
     }, [_id])
@@ -32,21 +31,28 @@ const Checkout = ({ order, setSuccess }) => {
         const card = elements.getElement(CardElement);
         if (card === null) return;
 
-        const { error } = await stripe.createPaymentMethod({ type: 'card', card });
+        const { error, paymentMethod } = await stripe.createPaymentMethod({
+            type: 'card',
+            card: card
+        });
+
 
         setCardError(error?.message || '');
+        setSuccess('');
         setProcessing(true);
-        console.log('sp', clientSecret, error)
+
+
         // confirm card payment
         const { paymentIntent, error: intentError } = await stripe.confirmCardPayment(clientSecret, {
             payment_method: {
                 card: card,
                 billing_details: {
                     name: name
-                },
-            },
+                }
+            }
         });
-        console.log('ie', intentError);
+        console.log('Payment Intent:', paymentIntent); // does not resolves
+
         if (intentError) {
             setCardError(intentError?.message);
             setProcessing(false);
