@@ -1,5 +1,5 @@
 import { signOut } from 'firebase/auth';
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link, useLocation } from 'react-router-dom';
 import { auth } from '../../../firebase.init';
@@ -8,9 +8,6 @@ import { FiMenu } from 'react-icons/fi';
 
 const Header = () => {
     const [user] = useAuthState(auth);
-    useEffect(() => {
-        console.log(user)
-    }, [user])
     const isLoginPage = useLocation().pathname.includes('/login');
 
     return (
@@ -44,7 +41,7 @@ const Header = () => {
                 </ul>
             </div>
             <div className="navbar-end pr-3">
-                {user ? <button className="btn btn-outline hidden md:inline-flex btn-error" onClick={() => signOut(auth)}>Logout</button> : <>
+                {user ? <button className="btn btn-outline hidden md:inline-flex btn-error" onClick={() => { signOut(auth); localStorage.removeItem('jwt'); }}>Logout</button> : <>
                     {isLoginPage && <Link to='/register' className="btn">Register</Link>}
                     {!isLoginPage && <Link to='/login' className="btn">Login</Link>}
                 </>}

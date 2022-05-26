@@ -29,14 +29,26 @@ const Parts = () => {
                 {parts.map((part, index) => {
                     const { name, price, img, desc, minimum, available, id } = part;
 
-                    return <div className="card card-compact w-96 bg-base-100 shadow-xl" key={index}>
+                    return <div className="card card-compact w-96 bg-base-100 shadow-sm hover:shadow-xl transition duration-300" key={index}>
                         <figure><img src={img} alt="Shoes" /></figure>
                         <div className="card-body gap-0">
                             <h2 className="card-title">{name}</h2>
-                            <p className='flex items-center'><span className="text-gray-400 inline-flex items-center"><FaTags className='mr-2' /> Price:</span> &nbsp; <span className="text-lg">{price.toLocaleString()} USD</span> &nbsp; / unit</p>
-                            <p className='flex items-center'><span className="text-gray-400 inline-flex items-center"><IoWarningOutline className='mr-2' /> Minimum:</span> &nbsp; <span className="text-lg">{minimum} units</span></p>
-                            <p className='flex items-center'><span className="text-gray-400 inline-flex items-center"><BsCheck2Circle className='mr-2' /> Available:</span> &nbsp; <span className="text-lg">{available} units</span></p>
-                            <p className='flex items-center'><span className="text-gray-400 inline-flex items-center"><IoNewspaperOutline className='mr-2' /> Description:</span></p><p><span className="text-sm">{desc}</span></p>
+                            <p className='flex items-center'>
+                                <span className="text-gray-400 inline-flex items-center"><FaTags className='mr-2' /> Price:</span>
+                                &nbsp; <span className="text-lg">{price.toLocaleString()} USD</span> &nbsp; / unit
+                            </p>
+                            <p className='flex items-center'>
+                                <span className="text-gray-400 inline-flex items-center"><IoWarningOutline className='mr-2' /> Minimum:</span>
+                                &nbsp; <span className="text-lg">{minimum} units</span>
+                            </p>
+                            <p className='flex items-center'>
+                                <span className="text-gray-400 inline-flex items-center"><BsCheck2Circle className='mr-2' /> Available:</span>
+                                &nbsp; <span className="text-lg">{available} units</span>
+                            </p>
+                            <p className='flex items-center'>
+                                <span className="text-gray-400 inline-flex items-center"><IoNewspaperOutline className='mr-2' /> Description:</span>
+                            </p>
+                            <p><span className="text-sm">{desc}</span></p>
                             <Link to={`/purchase/${id}`} className="btn btn-primary mt-5">Buy Now</Link>
                         </div>
                     </div>

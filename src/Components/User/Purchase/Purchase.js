@@ -34,6 +34,7 @@ const Purchase = () => {
     const [placed, setPlaced] = useState(false);
 
     const placeOrder = e => {
+        setShowLoading(true);
         e.preventDefault();
         const data = {};
         const elements = e.target.elements;
@@ -43,6 +44,7 @@ const Purchase = () => {
         console.log(data)
         axios.post(`${URLS.serverRoot}/${URLS.placeOrder}`, { data }, { headers: { authorization: `Bearer ${localStorage.getItem('jwt')}` } })
             .then(data => {
+                setShowLoading(false);
                 const { ok, text, result } = data?.data;
                 if (!ok) return toast.warn(`Error: ${text}`);
                 if (result?.acknowledged && result?.insertedId?.length > 5) {
@@ -50,7 +52,7 @@ const Purchase = () => {
                     setPlaced(true);
                 }
             })
-            .catch(err => toast.error(`Error: ${err?.response?.data?.text || err.message}`))
+            .catch(err => { setShowLoading(false); toast.error(`Error: ${err?.response?.data?.text || err.message}`); })
     }
 
 
@@ -78,7 +80,7 @@ const Purchase = () => {
             <small>You can Purchase a part from here</small>
             <div className='bg-white border-2 rounded-xl flex flex-col items-center my-4 py-4 lg:py-8 px-4 w-full'>
                 {
-                    showLoading ? <Loading></Loading> : <>
+                    showLoading ? <Loading /> : <>
 
                         <form onSubmit={placeOrder} onChange={changed} className='flex flex-col items-center w-full'>
 

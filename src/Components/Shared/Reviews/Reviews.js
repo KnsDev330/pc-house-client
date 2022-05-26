@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import Rating from 'react-rating';
 import { FaStar } from 'react-icons/fa';
 import { format } from 'date-fns';
 import axios from 'axios';
 import { URLS } from '../../../Constants/URLS';
 import { toast } from 'react-toastify';
+import Rating from 'react-rating';
 
 const Reviews = () => {
 
@@ -29,10 +29,10 @@ const Reviews = () => {
                 <div className="reviews bg-white p-8 flex flex-wrap gap-5 justify-center">
                     {
                         reviews.map(review => {
-                            const { id, name, rating, time, text, img } = review;
+                            const { _id, name, rating, time, text, img } = review;
 
-                            return <div key={id} className='w-[360px] max-w-[90%] flex'>
-                                <div className='comment shadow-sm flex flex-col mx-auto p-3 px-lg-5 border border-1 rounded rounded-5 w-full'>
+                            return <div key={_id} className='w-[360px] max-w-[90%] flex'>
+                                <div className='comment hover:shadow-xl transition duration-500 shadow-sm flex flex-col mx-auto p-3 px-lg-5 border border-1 rounded rounded-5 w-full'>
                                     <div className="comment-up-section flex">
                                         <img src={img} alt="avatar" className='rounded-full border-2 border-success w-[50px] h-[50px] mr-2' />
                                         <div className="flex justify-between items-center grow">
