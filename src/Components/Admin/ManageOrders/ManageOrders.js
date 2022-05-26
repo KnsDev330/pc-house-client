@@ -23,9 +23,7 @@ const ManageOrders = () => {
         axios.patch(`${URLS.serverRoot}/${URLS.orderShipped}`, { orderId }, { headers: { authorization: `Bearer ${localStorage.getItem('jwt')}` } })
             .then(data => {
                 setShowLoading(false);
-                console.log(data.data.update)
                 const { ok, text, update } = data.data;
-                console.log(data.data, update)
                 if (!ok) return toast.warn(`Error: ${text}`);
                 refetch();
                 if (update.modifiedCount > 1) toast.success(`Success: ${text}`);
@@ -39,7 +37,6 @@ const ManageOrders = () => {
     const deleteOrder = () => axios.delete(`${URLS.serverRoot}/${URLS.deleteOrder}/${deleteId}`, { headers: { authorization: `Bearer ${localStorage.getItem('jwt')}` } })
         .then(data => {
             const { ok, text, result } = data.data;
-            console.log(data.data)
             if (!ok) return toast.warn(`Error: ${text}`);
             if (result.acknowledged && result.deletedCount > 0) {
                 refetch();

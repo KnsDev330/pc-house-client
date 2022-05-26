@@ -22,9 +22,6 @@ const Pay = () => {
         headers: { 'authorization': `Bearer ${localStorage.getItem('jwt')}` }
     }).then(res => res.json()));
 
-    useEffect(() => {
-        console.log('order', order)
-    }, [order])
 
     if (isLoading || !order) return <Loading />
     if (success) return <Paid />

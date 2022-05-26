@@ -32,11 +32,9 @@ const AddProduct = () => {
         e.preventDefault();
         const data = {}, elements = e.target.elements;
         for (const elem of elements) { elem.name !== 'submit' && (data[elem.name] = elem.value); }
-        console.log(data);
         setShowLoading(true);
         axios.post(`${URLS.serverRoot}/${URLS.addProduct}`, { data }, { headers: { authorization: `Bearer ${localStorage.getItem('jwt')}` } })
             .then(data => {
-                console.log(data.data)
                 const { ok, text, result } = data?.data;
                 if (!ok) return toast.warn(`Error: ${text}`);
                 if (result?.acknowledged && result?.insertedId) toast.success(`Success: ${text}`);

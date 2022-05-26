@@ -19,7 +19,7 @@ const Parts = () => {
                 if (!ok) return toast.error(text);
                 setParts(dbParts || []);
             })
-            .catch(err => { console.log(err); toast.error(`Error: ${err?.response?.data?.text || err.message}`) })
+            .catch(err => { toast.error(`Error: ${err?.response?.data?.text || err.message}`) })
     }, []);
 
     return (

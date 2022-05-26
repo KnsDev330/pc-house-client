@@ -13,7 +13,6 @@ const UserRow = ({ num, user, refetch }) => {
     })
         .then(res => res.json())
         .then(data => {
-            console.log(data);
             if (!data.ok) return toast.warn(`Error: ${data.text}`);
             if (data.result.modifiedCount > 0) {
                 refetch();

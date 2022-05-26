@@ -18,7 +18,6 @@ const AddReview = () => {
     // set /show form errors
     const [err, setErr] = useState({ isErr: true });
     const changed = e => {
-        console.log(e)
         const value = e.target.value;
         const name = e.target.name;
         const minLength = e.target.minLength;
@@ -37,11 +36,9 @@ const AddReview = () => {
         for (const elem of elements) { elem.name !== 'update' && (data[elem.name] = elem.value); }
         data.text = data.review;
         delete data.review;
-        console.log(data);
         setShowLoading(true);
         axios.post(`${URLS.serverRoot}/${URLS.addReview}`, { data }, { headers: { authorization: `Bearer ${localStorage.getItem('jwt')}` } })
             .then(data => {
-                console.log(data.data)
                 const { ok, text, result } = data?.data;
                 if (!ok) return toast.warn(`Error: ${text}`);
                 if (result?.acknowledged && result?.insertedId) toast.success(`Success: ${text}`);

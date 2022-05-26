@@ -23,7 +23,6 @@ const MyOrders = () => {
     const cancelOrder = productId => axios.delete(`${URLS.serverRoot}/${URLS.cancelOrder}/${cancelId}`, { headers: { authorization: `Bearer ${localStorage.getItem('jwt')}` } })
         .then(data => {
             const { ok, text, result } = data.data;
-            console.log(data.data)
             if (!ok) return toast.warn(`Error: ${text}`);
             if (result.acknowledged && result.deletedCount > 0) {
                 refetch();

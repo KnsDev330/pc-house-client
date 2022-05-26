@@ -14,7 +14,6 @@ const Reviews = () => {
         axios.get(`${URLS.serverRoot}/${URLS.getReviews}/all`)
             .then(data => {
                 const { ok, text, reviews } = data.data;
-                console.log(data.data)
                 if (!ok) return toast.warn(`Error: ${text}`);
                 setReviews(reviews);
             })
